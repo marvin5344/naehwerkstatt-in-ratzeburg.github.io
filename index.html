@@ -221,6 +221,12 @@
       position: relative;
       cursor: pointer;
       overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .kategorie-vorschau:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px rgba(92,61,42,0.3);
     }
 
     .kategorie-vorschau img {
@@ -265,7 +271,15 @@
       justify-content: center;
     }
 
-    #lightbox.active { display: flex; }
+    @keyframes lbFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #lightbox.active {
+      display: flex;
+      animation: lbFadeIn 0.25s ease;
+    }
 
     .lb-inner {
       position: relative;
@@ -531,8 +545,8 @@
       .section-title { font-size: 1.4rem; }
 
       .leistungen-grid { grid-template-columns: 1fr; gap: 16px; }
-      .kategorien-grid { grid-template-columns: 1fr; }
-      .kategorie-vorschau img { height: 220px; }
+      .kategorien-grid { grid-template-columns: 1fr 1fr; }
+      .kategorie-vorschau img { height: 180px; }
       #lb-img { max-width: 92vw; max-height: 65vh; }
 
       .ueber-content p { font-size: 0.95rem; }
@@ -558,6 +572,7 @@
       <li><a href="#ueber" onclick="closeMenu()">Über mich</a></li>
       <li><a href="#galerie" onclick="closeMenu()">Galerie</a></li>
       <li><a href="#kontakt" onclick="closeMenu()">Kontakt</a></li>
+      <li><a href="#impressum" onclick="closeMenu()">Impressum</a></li>
     </ul>
   </nav>
 
@@ -729,7 +744,7 @@
       <div class="kontakt-info">
         <div class="kontakt-item">
           <div class="label">Adresse</div>
-          <div class="value">Schmilauer Straße 18<br>23909 Ratzeburg</div>
+          <div class="value"><a href="https://maps.google.com/?q=Schmilauer+Stra%C3%9Fe+18,+23909+Ratzeburg" target="_blank">Schmilauer Straße 18<br>23909 Ratzeburg</a></div>
         </div>
         <div class="kontakt-sep"></div>
         <div class="kontakt-item">
@@ -744,7 +759,7 @@
       </div>
       <div class="kontakt-map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2368.5!2d10.7497!3d53.7075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b27e8c3e3b4b4b%3A0x1!2sSchmilauer+Stra%C3%9Fe+18%2C+23909+Ratzeburg!5e0!3m2!1sde!2sde!4v1"
+          src="https://maps.google.com/maps?q=Schmilauer%20Stra%C3%9Fe%2018%2C%2023909%20Ratzeburg&output=embed&z=16"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
@@ -754,9 +769,22 @@
   </section>
 
 
+  <!-- IMPRESSUM -->
+  <section id="impressum" style="background:var(--warm)">
+    <h2 class="section-title">Impressum</h2>
+    <div class="divider"></div>
+    <div class="impressum-content">
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p>Michaela Breiholz<br>Textile Verarbeitung – Nähwerkstatt<br>Schmilauer Straße 18<br>23909 Ratzeburg</p>
+      <h3>Kontakt</h3>
+      <p>Telefon: <a href="tel:015754072952" style="color:var(--braun)">0157 54072952</a><br>E-Mail: <a href="mailto:michaela.breiholz@freenet.de" style="color:var(--braun)">michaela.breiholz@freenet.de</a></p>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <p>© 2026 Textile Verarbeitung · Nähwerkstatt Michaela Breiholz · Ratzeburg</p>
+    <p style="margin-top:6px"><a href="#impressum">Impressum</a></p>
   </footer>
 
   <!-- WHATSAPP BUTTON -->
